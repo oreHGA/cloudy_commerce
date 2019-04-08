@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cloudy Commerce</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+
+        .main-carousel {
+            background-color: black;
+            height: 400px;
+        }
+
+        #main-gallery div {
+            height: 400px;
+        }
+
+        #main-gallery img {
+            height: 400px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .single-product div {
+            height: 300px;
+        }
+
+        .single-product img {
+            height: 300px;
+            width: 100%;
+        }
+
+        .price_info {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="https://cloudinary-res.cloudinary.com/image/upload/c_scale,fl_attachment,w_500/v1/logo/for_white_bg/cloudinary_icon_for_white_bg.png"
+                width="30" height="30" />
+            Cloudy Commerce
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Featured <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Mobile Phones</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Laptops</a>
+                </li>
+            </ul>
+
+            <div class="form-inline my-2 my-lg-0">
+                <button class="btn btn-success my-2 my-sm-0" type="submit">Cart</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-carousel">
+        <div id="main-gallery"></div>
+    </div>
+
+    <div class="container">
+        <h2 style="margin-top: 20px">New Products</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div id="sub-gallery1"></div>
+                <div class="price_info">
+                    <h4>Headphones: $100</h4>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div id="sub-gallery2"></div>
+                <div class="price_info">
+                    <h4>Laptop: $2,000</h4>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div id="sub-gallery3"></div>
+                <div class="price_info">
+                    <h4>Xbox Controller: $60</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://product-gallery.cloudinary.com/all.js" type="text/javascript"></script>
+    <script>
+        const prodGallery = cloudinary.galleryWidget({
+            container: "#main-gallery",
+            cloudName: "CLOUDINARY_CLOUD_NAME",
+            mediaAssets: [{ tag: "banner" }],
+            carouselStyle: "none",
+            carouselOffset: 0,
+            navigationButtonProps: { shape: 'square' },
+            zoom: false
+        });
+
+        const subGallery1 = cloudinary.galleryWidget({
+            container: "#sub-gallery1",
+            cloudName: "CLOUDINARY_CLOUD_NAME",
+            mediaAssets: [{ tag: "headphones" }],
+            carouselStyle: "none",
+            carouselOffset: 0,
+            transformation: {
+                overlay: {
+                    text: 'SALE',
+                    font_family: 'Arial',
+                    font_size: 100,
+                    font_weight: 'bold',
+                    font_style: 'italic',
+                    letter_spacing: 2,
+                    text_decoration: 'underline',
+                    font_hinting: 'full'
+                },
+                color: "#fff",
+                x: 0,
+                y: -300,
+            },
+            zoom: false
+        });
+        const subGallery2 = cloudinary.galleryWidget({
+            container: "#sub-gallery2",
+            cloudName: "CLOUDINARY_CLOUD_NAME",
+            mediaAssets: [{ tag: "laptop" }],
+            carouselStyle: "none",
+            carouselOffset: 0,
+            transformation: {
+                overlay: {
+                    text: 'SALE',
+                    font_family: 'Arial',
+                    font_size: 100,
+                    font_weight: 'bold',
+                    font_style: 'italic',
+                    letter_spacing: 2,
+                    text_decoration: 'underline',
+                    font_hinting: 'full'
+                },
+                color: "#fff",
+                x: 0,
+                y: -300,
+            },
+            zoom: false
+        });
+        const subGallery3 = cloudinary.galleryWidget({
+            container: "#sub-gallery3",
+            cloudName: "CLOUDINARY_CLOUD_NAME",
+            mediaAssets: [{ tag: "controllers" }],
+            carouselStyle: "none",
+            carouselOffset: 0,
+            transformation: {
+                overlay: {
+                    text: 'SALE',
+                    font_family: 'Arial',
+                    font_size: 100,
+                    font_weight: 'bold',
+                    font_style: 'italic',
+                    letter_spacing: 2,
+                    text_decoration: 'underline',
+                    font_hinting: 'full'
+                },
+                color: "#fff",
+                x: 0,
+                y: -300,
+            },
+            zoom: false
+        });
+
+        prodGallery.render();
+        subGallery1.render();
+        subGallery2.render();
+        subGallery3.render();
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
