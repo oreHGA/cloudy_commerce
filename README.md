@@ -2,6 +2,10 @@
 
 <img src="./demo.gif">
 
+## Link to Tutorial
+
+[Tutorial Link](https://scotch.io/tutorials/building-customizable-product-galleries-for-ecommerce)
+
 ## Getting started
 
 - Create a Cloudinary Account [here](https://cloudinary.com/console)
